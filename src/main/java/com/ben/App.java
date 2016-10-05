@@ -36,11 +36,10 @@ public class App {
             model.put("template", "templates/home.vsl");
             return new ModelAndView(model, layout);
         }, new VelocityTemplateEngine());
-        String hi = "";
-        String address = hi.queryParams("address");
+
         get("/result", (request, response) -> {
             Map<String, Object> model = new HashMap<String, Object>();
-
+            String address = request.queryParams("address");
             String commute = request.queryParams("commute");
             model.put("commute", commute);
             model.put("address", address);
